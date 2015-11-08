@@ -32,8 +32,6 @@
             this.profilePicture_smallPictureBox = new System.Windows.Forms.PictureBox();
             this.login_button = new System.Windows.Forms.Button();
             this.logout_button = new System.Windows.Forms.Button();
-            this.posts_label = new System.Windows.Forms.Label();
-            this.posts_listBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture_smallPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,29 +70,11 @@
             this.logout_button.Text = "Logout";
             this.logout_button.UseVisualStyleBackColor = true;
             this.logout_button.Click += new System.EventHandler(this.logout_button_Click);
-            // 
-            // posts_label
-            // 
-            this.posts_label.AutoSize = true;
-            this.posts_label.Location = new System.Drawing.Point(183, 12);
-            this.posts_label.Name = "posts_label";
-            this.posts_label.Size = new System.Drawing.Size(36, 13);
-            this.posts_label.TabIndex = 4;
-            this.posts_label.Text = "Posts:";
-            // 
-            // posts_ListBox
-            // 
-            this.posts_listBox.FormattingEnabled = true;
-            this.posts_listBox.Location = new System.Drawing.Point(186, 29);
-            this.posts_listBox.Name = "posts_listBox";
-            this.posts_listBox.Size = new System.Drawing.Size(468, 368);
-            this.posts_listBox.TabIndex = 5;
+           
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(903, 417);
-            this.Controls.Add(this.posts_listBox);
-            this.Controls.Add(this.posts_label);
             this.Controls.Add(this.logout_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.profilePicture_smallPictureBox);
@@ -112,8 +92,6 @@
         private System.Windows.Forms.PictureBox profilePicture_smallPictureBox;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button logout_button;
-        private System.Windows.Forms.Label posts_label;
-        private System.Windows.Forms.ListBox posts_listBox;
     }
 }
 

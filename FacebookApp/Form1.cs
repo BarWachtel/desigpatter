@@ -51,14 +51,14 @@ namespace FacebookApp
                 Console.WriteLine("Message from " + inboxThread.From);
             }
 
-            foreach (Post post in m_LoggedInUser.Posts)
-            {
-                string content = post.Message != null ? post.Message : post.Description;
-                if (!string.IsNullOrEmpty(content))
-                {
-                    posts_listBox.Items.Add(content);
-                }
-            }
+            //foreach (Post post in m_LoggedInUser.Posts)
+            //{
+            //    string content = post.Message != null ? post.Message : post.Description;
+            //    if (!string.IsNullOrEmpty(content))
+            //    {
+            //        posts_listBox.Items.Add(content);
+            //    }
+            //}
             enableLoginButton(false);
         }
 
