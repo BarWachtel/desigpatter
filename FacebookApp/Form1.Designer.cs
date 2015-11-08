@@ -32,7 +32,8 @@
             this.profilePicture_smallPictureBox = new System.Windows.Forms.PictureBox();
             this.login_button = new System.Windows.Forms.Button();
             this.logout_button = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.albumPhotos_flowLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.saveAlbums_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture_smallPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,18 +73,30 @@
             this.logout_button.UseVisualStyleBackColor = true;
             this.logout_button.Click += new System.EventHandler(this.logout_button_Click);
             // 
-            // listView1
+            // albumPhotos_flowLayout
             // 
-            this.listView1.Location = new System.Drawing.Point(200, 29);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(534, 365);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.albumPhotos_flowLayout.AutoScroll = true;
+            this.albumPhotos_flowLayout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.albumPhotos_flowLayout.Location = new System.Drawing.Point(205, 29);
+            this.albumPhotos_flowLayout.Name = "albumPhotos_flowLayout";
+            this.albumPhotos_flowLayout.Size = new System.Drawing.Size(623, 353);
+            this.albumPhotos_flowLayout.TabIndex = 4;
+            // 
+            // saveAlbums_Button
+            // 
+            this.saveAlbums_Button.Location = new System.Drawing.Point(16, 229);
+            this.saveAlbums_Button.Name = "saveAlbums_Button";
+            this.saveAlbums_Button.Size = new System.Drawing.Size(89, 23);
+            this.saveAlbums_Button.TabIndex = 5;
+            this.saveAlbums_Button.Text = "Save Album/s";
+            this.saveAlbums_Button.UseVisualStyleBackColor = true;
+            this.saveAlbums_Button.Click += new System.EventHandler(this.saveAlbums_Button_Click);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(903, 417);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.saveAlbums_Button);
+            this.Controls.Add(this.albumPhotos_flowLayout);
             this.Controls.Add(this.logout_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.profilePicture_smallPictureBox);
@@ -101,7 +114,8 @@
         private System.Windows.Forms.PictureBox profilePicture_smallPictureBox;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button logout_button;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.FlowLayoutPanel albumPhotos_flowLayout;
+        private System.Windows.Forms.Button saveAlbums_Button;
     }
 }
 

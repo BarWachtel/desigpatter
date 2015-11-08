@@ -13,13 +13,20 @@ namespace FacebookApp
     public partial class Form1 : Form
     {
         User m_LoggedInUser;
-
+        List<string> m_SelectedAlbumIds;
         public Form1()
         {
             InitializeComponent();
             enableLoginButton();
+            enableSaveAlbumButton(false);
             Console.WriteLine(FacebookService.s_CollectionLimit);
             FacebookService.s_CollectionLimit = 1000;
+            m_SelectedAlbumIds = new List<string>();
+        }
+
+        private void enableSaveAlbumButton(bool i_Value = true)
+        {
+            saveAlbums_Button.Enabled = i_Value;
         }
 
         private void login_button_Click(object sender, EventArgs e)
@@ -29,7 +36,7 @@ namespace FacebookApp
 
         private void initAndLogin()
         {
-            LoginResult result = FacebookService.Login("419917864886078", "user_about_me", "user_friends", "user_posts");
+            LoginResult result = FacebookService.Login("419917864886078", "user_about_me", "user_friends", "user_posts", "user_photos");
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
                 m_LoggedInUser = result.LoggedInUser;
@@ -47,19 +54,37 @@ namespace FacebookApp
             profilePicture_smallPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             usersName_label.Text = getUserFullName();
 
-            foreach(InboxThread inboxThread in m_LoggedInUser.InboxThreads) {
-                Console.WriteLine("Message from " + inboxThread.From);
+            foreach (Album album in m_LoggedInUser.Albums)
+            {
+                AlbumCover albumCover = new AlbumCover(album.Name, album.PictureAlbumURL, album.Id);
+                albumPhotos_flowLayout.Controls.Add(albumCover);
+                albumCover.LoadImage();
+                albumCover.Click += new EventHandler(albumCoverSelected);               
             }
 
-            //foreach (Post post in m_LoggedInUser.Posts)
-            //{
-            //    string content = post.Message != null ? post.Message : post.Description;
-            //    if (!string.IsNullOrEmpty(content))
-            //    {
-            //        posts_listBox.Items.Add(content);
-            //    }
-            //}
             enableLoginButton(false);
+        }
+
+        private void albumCoverSelected(object sender, EventArgs e) {
+            AlbumCover albumCover = sender as AlbumCover;
+           
+            if (albumCover.IsSelected()) 
+            {
+                m_SelectedAlbumIds.Add(albumCover.Id); 
+            } 
+            else 
+            {
+                m_SelectedAlbumIds.Remove(albumCover.Id);
+            }
+
+            if (m_SelectedAlbumIds.Count > 0)
+            {
+                enableSaveAlbumButton();
+            }
+            else
+            {
+                enableSaveAlbumButton(false);
+            }
         }
 
         private void displayInitialLoggedOutUserScreen()
@@ -96,6 +121,21 @@ namespace FacebookApp
         {
             m_LoggedInUser = null;
             displayInitialLoggedOutUserScreen();
+        }
+
+        private void saveAlbums_Button_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.ShowDialog();
+            string fileDirectoryPath = folderBrowser.SelectedPath;
+            if (!string.IsNullOrEmpty(fileDirectoryPath))
+            {
+                Console.WriteLine("Folder " + fileDirectoryPath + " selected");
+                foreach (string id in m_SelectedAlbumIds)
+                {
+                    Console.WriteLine("Album ID: " + id);
+                }
+            }
         }
     }
 }
