@@ -32,6 +32,7 @@
             this.profilePicture_smallPictureBox = new System.Windows.Forms.PictureBox();
             this.login_button = new System.Windows.Forms.Button();
             this.logout_button = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture_smallPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,11 +71,19 @@
             this.logout_button.Text = "Logout";
             this.logout_button.UseVisualStyleBackColor = true;
             this.logout_button.Click += new System.EventHandler(this.logout_button_Click);
-           
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(200, 29);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(534, 365);
+            this.listView1.TabIndex = 4;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(903, 417);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.logout_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.profilePicture_smallPictureBox);
@@ -92,6 +101,7 @@
         private System.Windows.Forms.PictureBox profilePicture_smallPictureBox;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button logout_button;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 
