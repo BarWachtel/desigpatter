@@ -84,6 +84,11 @@ namespace FacebookApp
             return m_IsSelectedCheckBox.Checked;
         }
 
+        public void Deselect()
+        {
+            m_IsSelectedCheckBox.Checked = false;
+        }
+
         public string Id
         {
             get { return m_AlbumId; }
