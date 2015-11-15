@@ -34,6 +34,7 @@
             this.logout_button = new System.Windows.Forms.Button();
             this.albumPhotos_flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.saveAlbums_Button = new System.Windows.Forms.Button();
+            this.makeAlbumPrivate_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture_smallPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.albumPhotos_flowLayout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.albumPhotos_flowLayout.Location = new System.Drawing.Point(205, 29);
             this.albumPhotos_flowLayout.Name = "albumPhotos_flowLayout";
-            this.albumPhotos_flowLayout.Size = new System.Drawing.Size(623, 353);
+            this.albumPhotos_flowLayout.Size = new System.Drawing.Size(623, 313);
             this.albumPhotos_flowLayout.TabIndex = 4;
             // 
             // saveAlbums_Button
@@ -92,9 +93,20 @@
             this.saveAlbums_Button.UseVisualStyleBackColor = true;
             this.saveAlbums_Button.Click += new System.EventHandler(this.saveAlbums_Button_Click);
             // 
+            // makeAlbumPrivate_Button
+            // 
+            this.makeAlbumPrivate_Button.Location = new System.Drawing.Point(16, 258);
+            this.makeAlbumPrivate_Button.Name = "makeAlbumPrivate_Button";
+            this.makeAlbumPrivate_Button.Size = new System.Drawing.Size(114, 23);
+            this.makeAlbumPrivate_Button.TabIndex = 6;
+            this.makeAlbumPrivate_Button.Text = "Make Album Private";
+            this.makeAlbumPrivate_Button.UseVisualStyleBackColor = true;
+            this.makeAlbumPrivate_Button.Click += new System.EventHandler(this.makeAlbumPrivateButton_click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(903, 417);
+            this.ClientSize = new System.Drawing.Size(903, 503);
+            this.Controls.Add(this.makeAlbumPrivate_Button);
             this.Controls.Add(this.saveAlbums_Button);
             this.Controls.Add(this.albumPhotos_flowLayout);
             this.Controls.Add(this.logout_button);
@@ -116,6 +128,7 @@
         private System.Windows.Forms.Button logout_button;
         private System.Windows.Forms.FlowLayoutPanel albumPhotos_flowLayout;
         private System.Windows.Forms.Button saveAlbums_Button;
+        private System.Windows.Forms.Button makeAlbumPrivate_Button;
     }
 }
 

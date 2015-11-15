@@ -137,5 +137,26 @@ namespace FacebookApp
                 }
             }
         }
+
+        private void makeAlbumPrivateButton_click(object sender, EventArgs e)
+        {
+            string everyone = "everyone";
+            string friendOfFriend = "friends-of-friends";
+
+            foreach (string id in m_SelectedAlbumIds)
+            {
+                foreach (Album album in m_LoggedInUser.Albums)
+                {
+                    if (album.Id == id)
+                    {
+                        Console.WriteLine("Album ID: " + id + " has privacy settings:");
+                        Console.WriteLine("Original privacy setting: " + album.PrivcaySettings);
+                        Console.WriteLine("Changing privacy setting to " + friendOfFriend);
+                        album.PrivcaySettings = friendOfFriend;
+                        Console.WriteLine("New privacy setting: " + album.PrivcaySettings);
+                    }
+                }
+            }
+        }
     }
 }
